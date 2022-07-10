@@ -1,23 +1,70 @@
 import java.util.ArrayList;
 
-public class Copia extends Obra{// Existem atributos de uma obra presentes em copia
+public class Copia extends ModeloObra{// Existem atributos de uma obra presentes em copia
+	
 	private int codigoCopia;
 	private boolean alugada=false;
 	private Leitor locatario;
-	private String prazoDevolucao;
+	private String prazoDevolucao="-";
 	
-	public Copia(String nome, String autor, String editora, ArrayList<Copia> copias, int codigoObra, int codigoCopia,
-			boolean alugada, Leitor locatario, String prazoDevolucao) {
-		super(nome, autor, editora, copias, codigoObra);
+	
+	
+	public Copia(Obra obra, int codigoCopia) { //Obra é o livro que a copia faz referencia
+		super(obra.getNome(), obra.getAutor(), obra.getEditora());
 		this.codigoCopia = codigoCopia;
-		this.alugada = alugada;
-		this.locatario = locatario;
-		this.prazoDevolucao = prazoDevolucao;
+		 //Quanto uma copia é criada
 	}
 	
+	public String getNome() {
+		return nome;
+	}
+	public void  setNome(String nome) {
+		this.nome=nome;
+	}
+	public String getAutor() {
+		return autor;
+	}
+	public void setAutor(String autor) {
+		this.autor=autor;
+	}
+	public String getEditora() {
+		return editora;
+	}
+	public void setEditora(String editora) {
+		this.editora=editora;
+	}
+	////
 	
+	public int getCodigoCopia() {
+		return codigoCopia;
+	}
+
+	public boolean Alugada() {
+		return alugada;
+	}
+
+	public Leitor getLocatario() {
+		return locatario;
+	}
+
+
+	public String getPrazoDevolucao() {
+		return prazoDevolucao;
+	}
 	
-	
+	//ser Alugada
+	public void serAlugada(Leitor leitor, String prazoDevolucao) {
+		this.alugada=true;
+		this.locatario=leitor;
+		this.prazoDevolucao=prazoDevolucao;
+	}
+	//ser Devolvida
+	public void serDevolvida() {
+		this.alugada=false;
+		this.locatario=null;
+		this.prazoDevolucao="-";
+		
+	}
 	
 	
 	

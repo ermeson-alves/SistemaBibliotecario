@@ -18,24 +18,27 @@ public class Biblioteca { // Pegar codigo de obra
 	
 	public void adicionarObra(Obra obra) {
 		if(obras.contains(obra)) { // Obra deve ter um atributo para numero de copias
-			get(obras.lastIndexOf(obra)).copias.add(obra);
-			
+			obra.adicionarCopia(1);
 		}
 		else {
 			obras.add(obra);
-			obra.setcodigoObra(indiceObras);
-			indiceObras+=1; 
+			obra.setCodigoObra(indiceObras);
+			indiceObras+=1;
 		}
 	}
-	 public void retirarObra(Obra obra) {// As copias já serão deletadas, pois estão armazenadas no objeto obra
-		obras.remove(obra);
-	}
 	
+	
+	 public void retirarObra(int codigoObra) {// Usar apenas 'obras.remove(codigoObra)' implica descontrole sobre o indice
+		 for(int i = 0; i < obras.size(); i ++){
+	            if(obras.get(i).getCodigoObra()==codigoObra){
+	                obras.remove(i);}}  
+		
+	}
 	
 	public ArrayList<Obra> getObras() {
 		return obras;
 	}
-
+	
 	
 
 
