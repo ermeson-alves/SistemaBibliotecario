@@ -1,2 +1,2 @@
 # SistemaBibliotecario
-Repositorio raiz para a parte BackEnd do projeto de POO. Todas as classes, pacotes e demais arquivos referentes a essa parte serão armazenados nele.
+Repositorio raiz para o projeto final de POO. Todas as classes, pacotes e demais arquivos referentes ao BackEnd e FrontEnd do mesmo serão armazenadas nele.
