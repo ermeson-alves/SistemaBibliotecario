@@ -39,7 +39,7 @@ public class Copia extends ModeloObra{// Existem atributos de uma obra presentes
 		return codigoCopia;
 	}
 
-	public boolean Alugada() {
+	public boolean getAlugada() {
 		return alugada;
 	}
 

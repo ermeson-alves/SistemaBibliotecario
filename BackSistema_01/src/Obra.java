@@ -7,12 +7,12 @@ public class Obra extends ModeloObra{
 	
 	
 
-	public Obra(String nome, String autor, String editora, int codigoObra, int indiceCopias) {
+	public Obra(String nome, String autor, String editora, int quantidadeCopias) {
 		super(nome,autor,editora);
-		this.codigoObra = codigoObra;
-		this.indiceCopias = indiceCopias;
+		this.adicionarCopia(quantidadeCopias);
 	}
 
+	// Getters e Setters padrões
 	public String getNome() {
 		return nome;
 	}
@@ -33,7 +33,7 @@ public class Obra extends ModeloObra{
 	}
 	
 	
-	
+	//Metodos especificos
 	public ArrayList<Copia> getCopias() {
 		return copias;
 	}
@@ -47,21 +47,34 @@ public class Obra extends ModeloObra{
 	
 	
 	
+	@Override
+	public String toString() {
+		return "Obra: "+nome+", autor: "+autor+", editora: "+editora+", codigo obra: "+codigoObra+", numero de copias: "+indiceCopias;
+		
+	}
+
 	// Adicionar copia
 	public void adicionarCopia(int numeroCopias) {
 		for(int i=0;i<numeroCopias;i++) {
+			if(this.copias==null) {
+				this.copias=new ArrayList<Copia>();
+			}
 			Copia copia=new Copia(this,this.indiceCopias);
 			this.copias.add(copia);
-			indiceCopias+=1;
+			this.indiceCopias+=1;
 	
 		}
 	}
 	
 	// Retirar copia
-	public void retirarCopia() {
+	public void retirarCopia(int codigoCopia) {// Pode ser pedido para retirar uma copia sendo que não existem copias
+			 for(int i = 0; i < this.copias.size(); i ++){
+		           if(copias.get(i).getCodigoCopia()==codigoCopia){
+		               copias.remove(i);
+		               }
+		           }  	
+		}
 		
-	}
-
 	
 	
 	
