@@ -1,3 +1,4 @@
+package main;
 
 public abstract class ModeloObra {
 	protected String nome;
@@ -8,5 +9,8 @@ public abstract class ModeloObra {
 		this.nome = nome;
 		this.autor = autor;
 		this.editora = editora;
+	}
+	public ModeloObra() {
+		
 	}
 }

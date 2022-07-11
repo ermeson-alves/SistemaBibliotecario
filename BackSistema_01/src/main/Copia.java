@@ -1,3 +1,4 @@
+package main;
 import java.util.ArrayList;
 
 public class Copia extends ModeloObra{// Existem atributos de uma obra presentes em copia
@@ -9,10 +10,9 @@ public class Copia extends ModeloObra{// Existem atributos de uma obra presentes
 	
 	
 	
-	public Copia(Obra obra, int codigoCopia) { //Obra é o livro que a copia faz referencia
-		super(obra.getNome(), obra.getAutor(), obra.getEditora());
-		this.codigoCopia = codigoCopia;
-		 //Quanto uma copia é criada
+	public Copia() {// O Codigo copica deve ser atribuido com base no indiceCopias
+		super();
+		 
 	}
 	
 	public String getNome() {
@@ -58,6 +58,7 @@ public class Copia extends ModeloObra{// Existem atributos de uma obra presentes
 		this.locatario=leitor;
 		this.prazoDevolucao=prazoDevolucao;
 	}
+	
 	//ser Devolvida
 	public void serDevolvida() {
 		this.alugada=false;

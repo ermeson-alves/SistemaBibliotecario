@@ -1,11 +1,11 @@
+package main;
 import java.util.ArrayList;
 
 public class Obra extends ModeloObra{
-	private ArrayList<Copia> copias;   
+	private ArrayList<Copia> copias=new  ArrayList<Copia>();   
 	private int codigoObra=0;
 	private int indiceCopias=0; // aumenta quando uma copia é adicionada
-	
-	
+	//private int quantidadeCopias=copias.size();	
 
 	public Obra(String nome, String autor, String editora, int quantidadeCopias) {
 		super(nome,autor,editora);
@@ -56,13 +56,15 @@ public class Obra extends ModeloObra{
 	// Adicionar copia
 	public void adicionarCopia(int numeroCopias) {
 		for(int i=0;i<numeroCopias;i++) {
-			if(this.copias==null) {
-				this.copias=new ArrayList<Copia>();
-			}
-			Copia copia=new Copia(this,this.indiceCopias);
+			Copia copia=new Copia();
+			copia.nome=this.nome;
+			copia.autor=this.autor;
+			copia.editora=this.editora;
+			
+			int codigoCopia=copia.getCodigoCopia();
+			codigoCopia=indiceCopias;
 			this.copias.add(copia);
 			this.indiceCopias+=1;
-	
 		}
 	}
 	
@@ -75,7 +77,4 @@ public class Obra extends ModeloObra{
 		           }  	
 		}
 		
-	
-	
-	
 }
