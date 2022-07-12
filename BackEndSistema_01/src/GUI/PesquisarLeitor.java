@@ -42,6 +42,11 @@ public class PesquisarLeitor extends javax.swing.JFrame {
         });
 
         btnVoltarLeitor.setText("Voltar");
+        btnVoltarLeitor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVoltarLeitorActionPerformed(evt);
+            }
+        });
 
         lblNomeLeitor.setText("Nome:");
 
@@ -87,6 +92,10 @@ public class PesquisarLeitor extends javax.swing.JFrame {
     private void btnPesquisarLeitorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarLeitorActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnPesquisarLeitorActionPerformed
+
+    private void btnVoltarLeitorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarLeitorActionPerformed
+        this.dispose();        // TODO add your handling code here:
+    }//GEN-LAST:event_btnVoltarLeitorActionPerformed
 
     /**
      * @param args the command line arguments

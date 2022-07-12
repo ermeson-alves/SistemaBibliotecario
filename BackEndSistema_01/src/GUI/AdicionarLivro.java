@@ -55,6 +55,11 @@ public class AdicionarLivro extends javax.swing.JFrame {
         });
 
         btnVoltarAddLivro.setText("Voltar");
+        btnVoltarAddLivro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVoltarAddLivroActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -121,6 +126,10 @@ public class AdicionarLivro extends javax.swing.JFrame {
     private void btnAdd2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdd2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAdd2ActionPerformed
+
+    private void btnVoltarAddLivroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarAddLivroActionPerformed
+        this.dispose();        // TODO add your handling code here:
+    }//GEN-LAST:event_btnVoltarAddLivroActionPerformed
 
     /**
      * @param args the command line arguments

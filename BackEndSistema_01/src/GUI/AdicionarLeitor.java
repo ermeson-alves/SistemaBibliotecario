@@ -34,6 +34,11 @@ public class AdicionarLeitor extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         btnVoltarAddLeitor.setText("Voltar");
+        btnVoltarAddLeitor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVoltarAddLeitorActionPerformed(evt);
+            }
+        });
 
         lblLeitor.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblLeitor.setText("Nome do Leitor:");
@@ -79,6 +84,10 @@ public class AdicionarLeitor extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnVoltarAddLeitorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarAddLeitorActionPerformed
+        this.dispose();        // TODO add your handling code here:
+    }//GEN-LAST:event_btnVoltarAddLeitorActionPerformed
 
     /**
      * @param args the command line arguments

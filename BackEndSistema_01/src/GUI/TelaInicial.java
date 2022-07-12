@@ -41,23 +41,41 @@ public class TelaInicial extends javax.swing.JFrame {
         });
 
         btnPesquisarLeitor.setText("Pesquisar Leitor");
+        btnPesquisarLeitor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPesquisarLeitorActionPerformed(evt);
+            }
+        });
 
         btnAdicionarLivro.setText("Adicionar Livro");
+        btnAdicionarLivro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAdicionarLivroActionPerformed(evt);
+            }
+        });
 
         btnAdicionarLeitor.setText("Adicionar Leitor");
+        btnAdicionarLeitor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAdicionarLeitorActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(138, 138, 138)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnAdicionarLeitor)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(btnPesquisarLeitor)
-                        .addComponent(btnPesquisarLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnAdicionarLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(139, 139, 139)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnPesquisarLeitor)
+                            .addComponent(btnPesquisarLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnAdicionarLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(130, 130, 130)
+                        .addComponent(btnAdicionarLeitor)))
                 .addContainerGap(148, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -78,8 +96,20 @@ public class TelaInicial extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnPesquisarLivroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarLivroActionPerformed
-        // TODO add your handling code here:
+        new PesquisarLivro().setVisible(true);        // TODO add your handling code here:
     }//GEN-LAST:event_btnPesquisarLivroActionPerformed
+
+    private void btnPesquisarLeitorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarLeitorActionPerformed
+        new PesquisarLeitor().setVisible(true);// TODO add your handling code here:
+    }//GEN-LAST:event_btnPesquisarLeitorActionPerformed
+
+    private void btnAdicionarLivroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarLivroActionPerformed
+        new AdicionarLivro().setVisible(true);// TODO add your handling code here:
+    }//GEN-LAST:event_btnAdicionarLivroActionPerformed
+
+    private void btnAdicionarLeitorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarLeitorActionPerformed
+        new AdicionarLeitor().setVisible(true);// TODO add your handling code here:
+    }//GEN-LAST:event_btnAdicionarLeitorActionPerformed
 
     /**
      * @param args the command line arguments

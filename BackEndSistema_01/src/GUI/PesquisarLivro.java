@@ -45,6 +45,11 @@ public class PesquisarLivro extends javax.swing.JFrame {
         });
 
         btnVoltarLivro.setText("Voltar");
+        btnVoltarLivro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVoltarLivroActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -86,8 +91,12 @@ public class PesquisarLivro extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnPesquisarLivroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarLivroActionPerformed
-        // TODO add your handling code here:
+ 
     }//GEN-LAST:event_btnPesquisarLivroActionPerformed
+
+    private void btnVoltarLivroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarLivroActionPerformed
+        this.dispose();// TODO add your handling code here:
+    }//GEN-LAST:event_btnVoltarLivroActionPerformed
 
     /**
      * @param args the command line arguments
