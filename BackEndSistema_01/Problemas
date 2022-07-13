@@ -1,6 +1,0 @@
-Principais desafios até agora [10/07/2022 - 21:23]:
-
-- Ter controle sobre os indices das obras, de modo que seja possível fazer, eficientemente, 
-retiradas, buscas e ordenações;
-- O codigoObra é unico mesmo?
-- Melhorar o metodo getObras para melhor visualização do ArrayList;
