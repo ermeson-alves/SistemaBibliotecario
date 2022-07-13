@@ -4,19 +4,29 @@
  */
 package GUI;
 
+import java.util.ArrayList;
+import javax.swing.ComboBoxModel;
+import javax.swing.ListModel;
+import java.lang.String;
+import javax.swing.DefaultComboBoxModel;
+import main.ArrayListComboBoxModelLeitor;
+import main.ConjuntoLeitores;
+
 /**
  *
  * @author Guilherme
  */
-public class PesquisarLeitor extends javax.swing.JFrame {
+public class ListarLeitor extends javax.swing.JFrame {
 
     /**
      * Creates new form PesquisarLeitor
      */
-    public PesquisarLeitor() {
+    public ListarLeitor() {
         initComponents();
     }
-
+    ConjuntoLeitores leitores = ConjuntoLeitores.getInstance();
+    ArrayList arraylist = leitores.getLeitores();
+    ArrayListComboBoxModelLeitor model = new ArrayListComboBoxModelLeitor(arraylist);
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -26,20 +36,11 @@ public class PesquisarLeitor extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnPesquisarLeitor = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
         btnVoltarLeitor = new javax.swing.JButton();
-        txtfNomeLeitor = new javax.swing.JTextField();
         lblNomeLeitor = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        btnPesquisarLeitor.setText("Pesquisar");
-        btnPesquisarLeitor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPesquisarLeitorActionPerformed(evt);
-            }
-        });
 
         btnVoltarLeitor.setText("Voltar");
         btnVoltarLeitor.addActionListener(new java.awt.event.ActionListener() {
@@ -50,6 +51,8 @@ public class PesquisarLeitor extends javax.swing.JFrame {
 
         lblNomeLeitor.setText("Nome:");
 
+        jComboBox1.setModel(model);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -58,18 +61,13 @@ public class PesquisarLeitor extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(41, 41, 41)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblNomeLeitor)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtfNomeLeitor, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnPesquisarLeitor))
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(lblNomeLeitor)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(btnVoltarLeitor)))
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -78,20 +76,13 @@ public class PesquisarLeitor extends javax.swing.JFrame {
                 .addComponent(btnVoltarLeitor)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtfNomeLeitor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblNomeLeitor)
-                    .addComponent(btnPesquisarLeitor))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(31, Short.MAX_VALUE))
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(236, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnPesquisarLeitorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarLeitorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnPesquisarLeitorActionPerformed
 
     private void btnVoltarLeitorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarLeitorActionPerformed
         this.dispose();        // TODO add your handling code here:
@@ -114,29 +105,27 @@ public class PesquisarLeitor extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PesquisarLeitor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ListarLeitor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PesquisarLeitor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ListarLeitor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PesquisarLeitor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ListarLeitor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PesquisarLeitor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ListarLeitor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PesquisarLeitor().setVisible(true);
+                new ListarLeitor().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnPesquisarLeitor;
     private javax.swing.JButton btnVoltarLeitor;
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel lblNomeLeitor;
-    private javax.swing.JTextField txtfNomeLeitor;
     // End of variables declaration//GEN-END:variables
 }

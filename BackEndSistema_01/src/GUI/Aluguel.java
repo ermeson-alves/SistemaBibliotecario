@@ -5,7 +5,8 @@
 package GUI;
 
 import java.util.ArrayList;
-import main.ArrayListComboBoxModel;
+import main.ArrayListComboBoxModelBiblioteca;
+import main.ArrayListComboBoxModelLeitor;
 import main.ConjuntoLeitores;
 
 /**
@@ -22,7 +23,7 @@ public class Aluguel extends javax.swing.JFrame {
     }
     ConjuntoLeitores leitores = ConjuntoLeitores.getInstance();
     ArrayList arraylist = leitores.getLeitores();
-    ArrayListComboBoxModel modelLeitor = new ArrayListComboBoxModel(arraylist);
+    ArrayListComboBoxModelLeitor modelLeitor = new ArrayListComboBoxModelLeitor(arraylist);
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -131,10 +132,10 @@ public class Aluguel extends javax.swing.JFrame {
     }//GEN-LAST:event_txtfDevolucaoActionPerformed
 
     private void jComboBoxLeitorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxLeitorActionPerformed
-        jComboBoxLeitor.removeAllItems();
+       /* jComboBoxLeitor.removeAllItems();
         for(int i=0; i<leitores.getLeitores().size(); i++){
             jComboBoxLeitor.addItem(leitores.getLeitores().get(i).toString());
-        }
+        }*/
     }//GEN-LAST:event_jComboBoxLeitorActionPerformed
 
     /**

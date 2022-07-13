@@ -131,6 +131,7 @@ public class AdicionarLivro extends javax.swing.JFrame {
         String editora = txtfEditora.getText();
         int quantidadeCopias = Integer.parseInt(txtfQtd.getText());
         Biblioteca.getInstance().adicionarObra(nome, autor, editora, quantidadeCopias);
+        this.dispose();
     }//GEN-LAST:event_btnAdd2ActionPerformed
 
     private void btnVoltarAddLivroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarAddLivroActionPerformed

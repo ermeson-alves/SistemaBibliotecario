@@ -8,22 +8,22 @@ import javax.swing.ComboBoxModel;
 import javax.swing.ListModel;
 import java.lang.String;
 import javax.swing.DefaultComboBoxModel;
-import main.ArrayListComboBoxModel;
+import main.ArrayListComboBoxModelBiblioteca;
 import main.Biblioteca;
 /**
  *
  * @author Guilherme
  */
-public class PesquisarLivro extends javax.swing.JFrame {
+public class ListarLivro extends javax.swing.JFrame {
     /**
      * Creates new form PesquisarLivro
      */
-    public PesquisarLivro() {
+    public ListarLivro() {
         initComponents();
     }
     Biblioteca biblioteca = Biblioteca.getInstance();
     ArrayList arraylist = biblioteca.getObras();
-    ArrayListComboBoxModel model = new ArrayListComboBoxModel(arraylist);
+    ArrayListComboBoxModelBiblioteca model = new ArrayListComboBoxModelBiblioteca(arraylist);
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -135,20 +135,21 @@ public class PesquisarLivro extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PesquisarLivro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ListarLivro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PesquisarLivro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ListarLivro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PesquisarLivro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ListarLivro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PesquisarLivro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ListarLivro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PesquisarLivro().setVisible(true);
+                new ListarLivro().setVisible(true);
             }
         });
     }

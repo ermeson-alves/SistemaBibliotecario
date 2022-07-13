@@ -3,6 +3,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package GUI;
+import java.util.ArrayList;
+import javax.swing.ComboBoxModel;
+import javax.swing.ListModel;
+import java.lang.String;
+import javax.swing.DefaultComboBoxModel;
+import main.ArrayListComboBoxModelLeitor;
 import main.ConjuntoLeitores;
 /**
  *
@@ -17,6 +23,8 @@ public class AdicionarLeitor extends javax.swing.JFrame {
         initComponents();
     }
     ConjuntoLeitores leitores = ConjuntoLeitores.getInstance();
+    ArrayList arraylist = leitores.getLeitores();
+    ArrayListComboBoxModelLeitor model = new ArrayListComboBoxModelLeitor(arraylist);
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -30,6 +38,9 @@ public class AdicionarLeitor extends javax.swing.JFrame {
         lblLeitor = new javax.swing.JLabel();
         txtfLeitor = new javax.swing.JTextField();
         btnAdd1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jComboBox2 = new javax.swing.JComboBox<>();
+        btnRemoverLeitor = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -41,12 +52,29 @@ public class AdicionarLeitor extends javax.swing.JFrame {
         });
 
         lblLeitor.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lblLeitor.setText("Nome do Leitor:");
+        lblLeitor.setText("Nome:");
 
         btnAdd1.setText("Adicionar");
         btnAdd1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAdd1ActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel1.setText("Nome do Leitor:");
+
+        jComboBox2.setModel(model);
+        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox2ActionPerformed(evt);
+            }
+        });
+
+        btnRemoverLeitor.setText("Remover");
+        btnRemoverLeitor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRemoverLeitorActionPerformed(evt);
             }
         });
 
@@ -56,35 +84,43 @@ public class AdicionarLeitor extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
+                .addComponent(btnVoltarAddLeitor)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnVoltarAddLeitor)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 74, Short.MAX_VALUE)
+                    .addComponent(btnAdd1)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(lblLeitor)
-                                .addGap(146, 146, 146))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(txtfLeitor, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(70, 70, 70))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(btnAdd1)
-                                .addGap(157, 157, 157))))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(18, 18, 18)
+                                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnRemoverLeitor))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(lblLeitor)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(txtfLeitor, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(0, 30, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(btnVoltarAddLeitor)
-                .addGap(60, 60, 60)
-                .addComponent(lblLeitor, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblLeitor, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtfLeitor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtfLeitor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
                 .addComponent(btnAdd1)
-                .addContainerGap(116, Short.MAX_VALUE))
+                .addGap(63, 63, 63)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnRemoverLeitor)
+                .addContainerGap(66, Short.MAX_VALUE))
         );
 
         pack();
@@ -96,8 +132,19 @@ public class AdicionarLeitor extends javax.swing.JFrame {
 
     private void btnAdd1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdd1ActionPerformed
         String nome = txtfLeitor.getText();
-        leitores.adicionarLeitor(nome);
+        ConjuntoLeitores.getInstance().adicionarLeitor(nome);
+        this.dispose();
     }//GEN-LAST:event_btnAdd1ActionPerformed
+
+    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox2ActionPerformed
+
+    private void btnRemoverLeitorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverLeitorActionPerformed
+        String nome = jComboBox2.getSelectedItem().toString();
+        leitores.retirarLeitor(nome);
+        this.dispose();
+    }//GEN-LAST:event_btnRemoverLeitorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -136,7 +183,10 @@ public class AdicionarLeitor extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd1;
+    private javax.swing.JButton btnRemoverLeitor;
     private javax.swing.JButton btnVoltarAddLeitor;
+    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblLeitor;
     private javax.swing.JTextField txtfLeitor;
     // End of variables declaration//GEN-END:variables
