@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package GUI;
-
+import main.ConjuntoLeitores;
 /**
  *
  * @author Guilherme
@@ -16,7 +16,7 @@ public class AdicionarLeitor extends javax.swing.JFrame {
     public AdicionarLeitor() {
         initComponents();
     }
-
+    ConjuntoLeitores leitores = ConjuntoLeitores.getInstance();
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -44,6 +44,11 @@ public class AdicionarLeitor extends javax.swing.JFrame {
         lblLeitor.setText("Nome do Leitor:");
 
         btnAdd1.setText("Adicionar");
+        btnAdd1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAdd1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -88,6 +93,11 @@ public class AdicionarLeitor extends javax.swing.JFrame {
     private void btnVoltarAddLeitorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarAddLeitorActionPerformed
         this.dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_btnVoltarAddLeitorActionPerformed
+
+    private void btnAdd1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdd1ActionPerformed
+        String nome = txtfLeitor.getText();
+        leitores.adicionarLeitor(nome);
+    }//GEN-LAST:event_btnAdd1ActionPerformed
 
     /**
      * @param args the command line arguments

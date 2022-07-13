@@ -21,8 +21,7 @@ public class Biblioteca {
 		}
 		return (Obra) o;
 	}
-	
-	
+        
 	public ArrayList<Obra> getObras() {
 		return obras;
 	}
@@ -33,11 +32,11 @@ public class Biblioteca {
 		for(int i = 0; i < this.obras.size(); i ++){// percorrer o arraylist
 	           if(obras.get(i).getNome()==nome){
 	               achou_obra=true;
-	               obras.get(i).adicionarCopia(1);
+	               if(quantidadeCopias==0) {quantidadeCopias=1;}
+	               obras.get(i).adicionarCopia(quantidadeCopias);
 	               }
 	    }
 		if(achou_obra) {
-			System.out.println("Obra existente");
 		}
 		else {//se não achou uma obra com o mesmo nome, cria uma nova
 			 Obra obra=new Obra(nome,autor,editora,quantidadeCopias);
