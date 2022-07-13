@@ -30,6 +30,7 @@ public class TelaInicial extends javax.swing.JFrame {
         btnPesquisarLeitor = new javax.swing.JButton();
         btnAdicionarLivro = new javax.swing.JButton();
         btnAdicionarLeitor = new javax.swing.JButton();
+        btnAluguel = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -54,10 +55,17 @@ public class TelaInicial extends javax.swing.JFrame {
             }
         });
 
-        btnAdicionarLeitor.setText("Adicionar Leitor");
+        btnAdicionarLeitor.setText("Ações Leitor");
         btnAdicionarLeitor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAdicionarLeitorActionPerformed(evt);
+            }
+        });
+
+        btnAluguel.setText("Aluguel");
+        btnAluguel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAluguelActionPerformed(evt);
             }
         });
 
@@ -65,13 +73,14 @@ public class TelaInicial extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addGap(139, 139, 139)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnAdicionarLeitor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnAdicionarLivro, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
-                    .addComponent(btnPesquisarLeitor, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnPesquisarLivro, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnAluguel, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAdicionarLeitor, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnAdicionarLivro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnPesquisarLeitor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnPesquisarLivro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(148, 148, 148))
         );
         layout.setVerticalGroup(
@@ -85,7 +94,9 @@ public class TelaInicial extends javax.swing.JFrame {
                 .addComponent(btnAdicionarLivro)
                 .addGap(18, 18, 18)
                 .addComponent(btnAdicionarLeitor)
-                .addContainerGap(105, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(btnAluguel)
+                .addContainerGap(65, Short.MAX_VALUE))
         );
 
         pack();
@@ -96,16 +107,20 @@ public class TelaInicial extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPesquisarLivroActionPerformed
 
     private void btnPesquisarLeitorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarLeitorActionPerformed
-        new ListarLeitor().setVisible(true);// TODO add your handling code here:
+        new ListarLeitor().setVisible(true);
     }//GEN-LAST:event_btnPesquisarLeitorActionPerformed
 
     private void btnAdicionarLivroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarLivroActionPerformed
-        new AdicionarLivro().setVisible(true);// TODO add your handling code here:
+        new AdicionarLivro().setVisible(true);
     }//GEN-LAST:event_btnAdicionarLivroActionPerformed
 
     private void btnAdicionarLeitorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarLeitorActionPerformed
-        new AdicionarLeitor().setVisible(true);// TODO add your handling code here:
+        new AdicionarLeitor().setVisible(true);
     }//GEN-LAST:event_btnAdicionarLeitorActionPerformed
+
+    private void btnAluguelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAluguelActionPerformed
+        new Aluguel().setVisible(true);
+    }//GEN-LAST:event_btnAluguelActionPerformed
 
     /**
      * @param args the command line arguments
@@ -145,6 +160,7 @@ public class TelaInicial extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdicionarLeitor;
     private javax.swing.JButton btnAdicionarLivro;
+    private javax.swing.JButton btnAluguel;
     private javax.swing.JButton btnPesquisarLeitor;
     private javax.swing.JButton btnPesquisarLivro;
     // End of variables declaration//GEN-END:variables

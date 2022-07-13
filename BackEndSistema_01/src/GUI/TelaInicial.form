@@ -23,11 +23,12 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="1" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="139" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="btnAdicionarLeitor" max="32767" attributes="0"/>
-                  <Component id="btnAdicionarLivro" alignment="0" pref="119" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="btnAluguel" min="-2" pref="119" max="-2" attributes="0"/>
+                  <Component id="btnAdicionarLeitor" alignment="1" max="32767" attributes="0"/>
+                  <Component id="btnAdicionarLivro" alignment="0" max="32767" attributes="0"/>
                   <Component id="btnPesquisarLeitor" alignment="0" max="32767" attributes="0"/>
                   <Component id="btnPesquisarLivro" alignment="0" max="32767" attributes="0"/>
               </Group>
@@ -46,7 +47,9 @@
               <Component id="btnAdicionarLivro" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="btnAdicionarLeitor" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="105" max="32767" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="btnAluguel" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="65" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -78,10 +81,18 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnAdicionarLeitor">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Adicionar Leitor"/>
+        <Property name="text" type="java.lang.String" value="A&#xe7;&#xf5;es Leitor"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAdicionarLeitorActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnAluguel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Aluguel"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAluguelActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

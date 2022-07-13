@@ -32,22 +32,18 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="lblAluguel" min="-2" max="-2" attributes="0"/>
                           <Component id="lblDevolucao" min="-2" max="-2" attributes="0"/>
                           <Component id="lblLeitor" alignment="1" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="txtfAluguel" alignment="0" pref="98" max="32767" attributes="0"/>
-                              <Component id="txtfDevolucao" alignment="0" max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                              <Component id="btnEnviarAluguel" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="jComboBoxLeitor" alignment="0" min="-2" pref="166" max="-2" attributes="0"/>
+                          <Component id="jComboBoxLeitor" min="-2" pref="166" max="-2" attributes="0"/>
+                          <Component id="txtfDevolucao" min="-2" pref="115" max="-2" attributes="0"/>
                       </Group>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="160" max="-2" attributes="0"/>
+                      <Component id="btnEnviarAluguel" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace pref="105" max="32767" attributes="0"/>
@@ -65,18 +61,13 @@
                   <Component id="txtfDevolucao" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblAluguel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtfAluguel" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="lblLeitor" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jComboBoxLeitor" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="lblLeitor" min="-2" max="-2" attributes="0"/>
-                  <Component id="jComboBoxLeitor" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
               <Component id="btnEnviarAluguel" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="76" max="32767" attributes="0"/>
+              <EmptySpace pref="139" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -93,11 +84,6 @@
     <Component class="javax.swing.JLabel" name="lblLeitor">
       <Properties>
         <Property name="text" type="java.lang.String" value="Leitor:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblAluguel">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Data de Aluguel:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblDevolucao">
@@ -123,12 +109,13 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtfDevolucaoActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtfAluguel">
-    </Component>
     <Component class="javax.swing.JButton" name="btnEnviarAluguel">
       <Properties>
         <Property name="text" type="java.lang.String" value="Enviar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEnviarAluguelActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
