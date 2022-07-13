@@ -4,6 +4,8 @@
  */
 package GUI;
 
+import main.Biblioteca;
+
 /**
  *
  * @author Guilherme
@@ -124,7 +126,11 @@ public class AdicionarLivro extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAdd2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdd2ActionPerformed
-        // TODO add your handling code here:
+        String nome = txtfNomeAdd1.getText();
+        String autor = txtfAutor.getText();
+        String editora = txtfEditora.getText();
+        int quantidadeCopias = Integer.parseInt(txtfQtd.getText());
+        Biblioteca.getInstance().adicionarObra(nome, autor, editora, quantidadeCopias);
     }//GEN-LAST:event_btnAdd2ActionPerformed
 
     private void btnVoltarAddLivroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarAddLivroActionPerformed
