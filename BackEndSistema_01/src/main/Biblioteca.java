@@ -2,17 +2,52 @@ package main;
 
 import java.util.ArrayList;
 
+/**
+ * 
+ * @author Carlos Victor
+ * @author Cristofe
+ * @author Leonardo
+ * @author Guilherme Noronha
+ * @author Eduardo Ferreira
+ * @author Ermeson Alves
+ * 
+ * @version 1.0
+ * @since 2022-07-12
+ * 
+ *	
+ */
+
+/**
+ * Classe principal que armazena todas as obras e oferece métodos como inclusão e remoção delas do sistema.
+ * Esta classe possui instancia unica (singleton).
+ */
 public class Biblioteca {
+	/**
+	 * Colecao de obras da biblioteca.
+	 */
 	private static ArrayList<Obra> obras;
+	/**
+	 * Numero que gera o codigoObra de uma Obra. Comeca em 0 e aumenta em 1 para cada obra adicionada na biblioteca.
+	 */
 	public static int indiceObras=0;
+	/**
+	 * Instancia unica da classe.
+	 */
 	private static Biblioteca uniqueInstance;
         //private ArrayList<Obra> aux=null;
 	
+	/**
+   * Construtor privado da classe, no formato singleton.
+   */
 	private Biblioteca() {
 		this.obras=new ArrayList<Obra>(); // Quando a Classe é criada, deve-se criar o Array de obras
 	}
 	
-	
+	/**
+	 * Busca por uma obra especifica armazenada.
+	 * @param codigoObra Código único atribuido a uma obra quando ela eh criada.
+	 * @return Obra com o codigo correspondente.
+	 */
 	public Obra buscarObra(int codigoObra) {
 		Obra o=null;
 		for(Obra obra:this.obras) {
@@ -46,6 +81,15 @@ public class Biblioteca {
 			 indiceObras+=1;
 		 }
 	}*/
+
+	/**
+	 * Cria uma obra com o nome, autor e editora inseridos, e a essa
+ja sera atribuido um número de copias (se forem adcionadas com a obra).
+	 * @param nome Nome da Obra
+	 * @param autor Autor da Obra
+	 * @param editora Editora da Obra
+	 * @param quantidadeCopias número de copias que serão adicionadas a coleção no momento de inserção da obra.
+	 */
         public void adicionarObra (String nome, String autor, String editora, int quantidadeCopias) {
 		boolean achou_obra=false;
 		for(int i = 0; i < this.obras.size(); i ++){// percorrer o arraylist
@@ -65,7 +109,10 @@ public class Biblioteca {
 		 }
 	}
 	
-	
+	/**
+	 * Remove uma obra do ArrayList de obras.
+	 * @param codigoObra
+	 */
 	 public void retirarObra(int codigoObra) {// Usar apenas 'obras.remove(codigoObra)' implica descontrole sobre o indice
 		 for(int i = 0; i < obras.size(); i ++){
 	            if(obras.get(i).getCodigoObra()==codigoObra){
@@ -90,6 +137,9 @@ public class Biblioteca {
             return obrasAlugadas;
          }
 	
+	/**
+   * Este metodo retorna a instancia unica da classe.
+   */
 	public static Biblioteca getInstance(){
 		if (uniqueInstance==null) {
 			uniqueInstance=new Biblioteca();
