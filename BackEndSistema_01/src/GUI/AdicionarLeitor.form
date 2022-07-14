@@ -31,7 +31,13 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="btnAdd1" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Component id="btnAdd1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="lblLeitorExistente" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                      <Component id="lblLeitorNomeVazio" min="-2" max="-2" attributes="0"/>
+                  </Group>
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
@@ -63,7 +69,11 @@
                   <Component id="txtfLeitor" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="btnAdd1" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="btnAdd1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblLeitorExistente" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblLeitorNomeVazio" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -131,6 +141,16 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRemoverLeitorActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblLeitorExistente">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Nome ja existente!"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblLeitorNomeVazio">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Nome vazio!"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

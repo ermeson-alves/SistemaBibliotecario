@@ -4,6 +4,8 @@
  */
 package GUI;
 
+import Exceptions.ObraExistenteException;
+import Exceptions.ObraNomeVazioException;
 import java.util.ArrayList;
 import main.ArrayListComboBoxModelBiblioteca;
 import main.Biblioteca;
@@ -45,6 +47,7 @@ public class AdicionarLivro extends javax.swing.JFrame {
         lblLivro = new javax.swing.JLabel();
         jComboBoxLivro = new javax.swing.JComboBox<>();
         btnRemover = new javax.swing.JButton();
+        lblObraExistente = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -81,45 +84,51 @@ public class AdicionarLivro extends javax.swing.JFrame {
             }
         });
 
+        lblObraExistente.setText("Obra já existente");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(btnVoltarAddLivro))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(59, 59, 59)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(lblAutor)
+                                .addComponent(lblEditora))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtfAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtfEditora, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(66, 66, 66)
+                            .addComponent(lblNomeAdd2)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(txtfNomeAdd1, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(21, 21, 21)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(lblQtd)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(txtfQtd, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnAdd2))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(lblLivro)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jComboBoxLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(btnRemover)
+                                    .addGap(0, 0, Short.MAX_VALUE)))))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnVoltarAddLivro))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(59, 59, 59)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblAutor)
-                            .addComponent(lblEditora))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtfAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtfEditora, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(66, 66, 66)
-                        .addComponent(lblNomeAdd2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtfNomeAdd1, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblQtd)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtfQtd, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnAdd2))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblLivro)
-                                .addGap(18, 18, 18)
-                                .addComponent(jComboBoxLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnRemover)
-                                .addGap(0, 0, Short.MAX_VALUE)))))
+                        .addGap(150, 150, 150)
+                        .addComponent(lblObraExistente)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -150,7 +159,9 @@ public class AdicionarLivro extends javax.swing.JFrame {
                     .addComponent(jComboBoxLivro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblLivro)
                     .addComponent(btnRemover))
-                .addContainerGap(101, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                .addComponent(lblObraExistente)
+                .addGap(24, 24, 24))
         );
 
         pack();
@@ -162,12 +173,19 @@ public class AdicionarLivro extends javax.swing.JFrame {
         String autor = txtfAutor.getText();
         String editora = txtfEditora.getText();
         int quantidadeCopias = Integer.parseInt(txtfQtd.getText());
-        Biblioteca.getInstance().adicionarObra(nome, autor, editora, quantidadeCopias);
-        this.dispose();
+        try{ 
+            Biblioteca.getInstance().adicionarObra(nome, autor, editora, quantidadeCopias);
+        }catch(ObraExistenteException e){
+            lblObraExistente.setVisible(true);
+            e.printStackTrace();
+        }catch(ObraNomeVazioException e){
+            e.printStackTrace();
+        }
     }//GEN-LAST:event_btnAdd2ActionPerformed
 
     private void btnVoltarAddLivroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarAddLivroActionPerformed
-        this.dispose();        // TODO add your handling code here:
+        lblObraExistente.setVisible(false);
+        this.dispose();
     }//GEN-LAST:event_btnVoltarAddLivroActionPerformed
 
     private void btnRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverActionPerformed
@@ -220,6 +238,7 @@ public class AdicionarLivro extends javax.swing.JFrame {
     private javax.swing.JLabel lblEditora;
     private javax.swing.JLabel lblLivro;
     private javax.swing.JLabel lblNomeAdd2;
+    private javax.swing.JLabel lblObraExistente;
     private javax.swing.JLabel lblQtd;
     private javax.swing.JTextField txtfAutor;
     private javax.swing.JTextField txtfEditora;

@@ -3,6 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package main;
+import Exceptions.LeitorExistenteException;
+import Exceptions.LeitorNomeVazioException;
 import java.util.ArrayList;
 /**
  *
@@ -20,9 +22,27 @@ public class ConjuntoLeitores {
 		return leitores;
 	}
 
-  public void adicionarLeitor (String nome) {
-		Leitor leitor = new Leitor(nome);
-		leitores.add(leitor);
+  public void adicionarLeitor (String nome) throws LeitorExistenteException, LeitorNomeVazioException {
+		/*Leitor leitor = new Leitor(nome);
+		leitores.add(leitor);*/
+                if(nome!=null) {
+		  	boolean achouLeitor = false;
+		  	for (int i = 0; i < this.leitores.size(); i++) {// percorrer o arraylist
+				if (leitores.get(i).getNome() == nome) {
+					achouLeitor = true;
+				}
+		  	}
+		  	if(achouLeitor) {
+		  		
+		  		throw new LeitorExistenteException("O leitor já está cadastrado!");
+		  		
+		  	} else {
+		  		Leitor leitor = new Leitor(nome);
+		  		leitores.add(leitor);
+		  	}
+		} else {
+			throw new LeitorNomeVazioException("O campo 'Nome' deve estar preenchido");
+		}
 	}
 
   public void retirarLeitor (String nome) {

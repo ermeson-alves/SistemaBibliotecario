@@ -1,8 +1,13 @@
 package main;
+
+import Exceptions.ObraExistenteException;
+import Exceptions.ObraNomeVazioException;
+import GUI.TelaInicial;
+
 public class Teste {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ObraExistenteException, ObraNomeVazioException {
 		Biblioteca biblioteca =Biblioteca.getInstance();
-		System.out.println(biblioteca);
+		/*System.out.println(biblioteca);
 		biblioteca.adicionarObra("Dom Casmurro", "Machado de Assis", "Ler Livro",1);
 		biblioteca.adicionarObra("Romeu e Julieta", "Shakespeare", "Ler Livro",1);
                 biblioteca.buscarObra(0).alugarObra("Guilherme", "24/03");
@@ -22,6 +27,6 @@ public class Teste {
                      if(biblioteca.getObras().get(i).getAlugada()==true){
                          System.out.println("alugada");
                      }
-                 }
+                 }*/
 	}
 }

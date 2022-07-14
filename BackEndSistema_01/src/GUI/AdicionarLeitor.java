@@ -3,6 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package GUI;
+import Exceptions.LeitorExistenteException;
+import Exceptions.LeitorNomeVazioException;
 import java.util.ArrayList;
 import javax.swing.ComboBoxModel;
 import javax.swing.ListModel;
@@ -41,6 +43,8 @@ public class AdicionarLeitor extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jComboBox2 = new javax.swing.JComboBox<>();
         btnRemoverLeitor = new javax.swing.JButton();
+        lblLeitorExistente = new javax.swing.JLabel();
+        lblLeitorNomeVazio = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -78,6 +82,10 @@ public class AdicionarLeitor extends javax.swing.JFrame {
             }
         });
 
+        lblLeitorExistente.setText("Nome ja existente!");
+
+        lblLeitorNomeVazio.setText("Nome vazio!");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -89,7 +97,12 @@ public class AdicionarLeitor extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnAdd1)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnAdd1)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblLeitorExistente)
+                        .addGap(35, 35, 35)
+                        .addComponent(lblLeitorNomeVazio))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -113,7 +126,10 @@ public class AdicionarLeitor extends javax.swing.JFrame {
                     .addComponent(lblLeitor, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtfLeitor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnAdd1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAdd1)
+                    .addComponent(lblLeitorExistente)
+                    .addComponent(lblLeitorNomeVazio))
                 .addGap(63, 63, 63)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
@@ -128,13 +144,31 @@ public class AdicionarLeitor extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVoltarAddLeitorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarAddLeitorActionPerformed
-        this.dispose();        // TODO add your handling code here:
+        lblLeitorExistente.setVisible(false);
+        lblLeitorNomeVazio.setVisible(false);
+        this.dispose();
     }//GEN-LAST:event_btnVoltarAddLeitorActionPerformed
 
     private void btnAdd1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdd1ActionPerformed
-        String nome = txtfLeitor.getText();
+        /*String nome = txtfLeitor.getText();
         ConjuntoLeitores.getInstance().adicionarLeitor(nome);
-        this.dispose();
+        this.dispose();*/
+        String nome = txtfLeitor.getText();
+        try {
+			leitores.adicionarLeitor(nome);
+		} catch (LeitorExistenteException e) {
+			
+			// TODO Depois de adicionar label, descomentar o comando abaixo
+			lblLeitorExistente.setVisible(true);
+			
+			e.printStackTrace();
+		} catch (LeitorNomeVazioException e) {
+			
+			// TODO Depois de adicionar label, descomentar o comando abaixo
+			lblLeitorNomeVazio.setVisible(true);
+			
+			e.printStackTrace();
+		}
     }//GEN-LAST:event_btnAdd1ActionPerformed
 
     private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
@@ -189,6 +223,8 @@ public class AdicionarLeitor extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblLeitor;
+    private javax.swing.JLabel lblLeitorExistente;
+    private javax.swing.JLabel lblLeitorNomeVazio;
     private javax.swing.JTextField txtfLeitor;
     // End of variables declaration//GEN-END:variables
 }

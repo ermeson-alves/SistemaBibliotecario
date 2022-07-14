@@ -1,5 +1,7 @@
 package main;
 
+import Exceptions.ObraExistenteException;
+import Exceptions.ObraNomeVazioException;
 import java.util.ArrayList;
 
 public class Biblioteca {
@@ -46,23 +48,28 @@ public class Biblioteca {
 			 indiceObras+=1;
 		 }
 	}*/
-        public void adicionarObra (String nome, String autor, String editora, int quantidadeCopias) {
+        public void adicionarObra (String nome, String autor, String editora, int quantidadeCopias) throws ObraExistenteException, ObraNomeVazioException {
 		boolean achou_obra=false;
-		for(int i = 0; i < this.obras.size(); i ++){// percorrer o arraylist
-	           if(obras.get(i).getNome()==nome){
-	               achou_obra=true;
-	               if(quantidadeCopias==0) {obras.get(i).adicionarCopia(1);}
-	               else {obras.get(i).adicionarCopia(quantidadeCopias);}
-	           }
-	    }
-		if(achou_obra) {}
-		else {
+                if(nome!=null){
+                    for(int i = 0; i < this.obras.size(); i ++){// percorrer o arraylist
+                        if(obras.get(i).getNome()==nome){
+                            achou_obra=true;
+                            if(quantidadeCopias==0) {obras.get(i).adicionarCopia(1);}
+                        else {obras.get(i).adicionarCopia(quantidadeCopias);}
+                        }
+                    }
+                    if(achou_obra) {
+                        throw new ObraExistenteException("Essa obra ja existe");
+                    } else {
 			 Obra obra=new Obra(nome,autor,editora,quantidadeCopias);
 			 obras.add(obra);
 			 obra.setCodigoObra(indiceObras);
                          indiceObras+=1;
                          
-		 }
+                      }
+                } else{
+                        throw new ObraNomeVazioException("O campo Nome deve estar preenchido");
+                }
 	}
 	
 	
