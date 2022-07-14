@@ -82,6 +82,7 @@ public class ListarLeitor extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVoltarLeitorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarLeitorActionPerformed
