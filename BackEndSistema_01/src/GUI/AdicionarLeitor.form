@@ -146,11 +146,17 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Nome ja existente!"/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="lblLeitorExistente.setVisible(false);"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="lblLeitorNomeVazio">
       <Properties>
         <Property name="text" type="java.lang.String" value="Nome vazio!"/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="lblLeitorNomeVazio.setVisible(false);"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>

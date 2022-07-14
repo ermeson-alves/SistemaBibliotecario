@@ -44,7 +44,9 @@ public class AdicionarLeitor extends javax.swing.JFrame {
         jComboBox2 = new javax.swing.JComboBox<>();
         btnRemoverLeitor = new javax.swing.JButton();
         lblLeitorExistente = new javax.swing.JLabel();
+        lblLeitorExistente.setVisible(false);
         lblLeitorNomeVazio = new javax.swing.JLabel();
+        lblLeitorNomeVazio.setVisible(false);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
