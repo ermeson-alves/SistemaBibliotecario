@@ -6,10 +6,13 @@ package GUI;
 
 import java.util.ArrayList;
 import main.ArrayListComboBoxModelBiblioteca;
+import main.ArrayListComboBoxModelBibliotecaAux;
 import main.ArrayListComboBoxModelLeitor;
+import main.Biblioteca;
 import main.ConjuntoLeitores;
 import main.Leitor;
 import main.Copia;
+import main.Obra;
 
 /**
  *
@@ -26,7 +29,11 @@ public class Aluguel extends javax.swing.JFrame {
     ConjuntoLeitores leitores = ConjuntoLeitores.getInstance();
     ArrayList arraylist = leitores.getLeitores();
     ArrayListComboBoxModelLeitor modelLeitor = new ArrayListComboBoxModelLeitor(arraylist);
-    Copia copia = new Copia();
+    Biblioteca biblioteca = Biblioteca.getInstance();
+    ArrayList arraylist1 = biblioteca.getArrayAuxiliar();
+    ArrayListComboBoxModelBibliotecaAux model = new ArrayListComboBoxModelBibliotecaAux(arraylist1);
+    ArrayList arraylist2 = biblioteca.getObras();
+    ArrayListComboBoxModelBiblioteca model2 = new ArrayListComboBoxModelBiblioteca(arraylist);
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -42,6 +49,8 @@ public class Aluguel extends javax.swing.JFrame {
         jComboBoxLeitor = new javax.swing.JComboBox<>();
         txtfDevolucao = new javax.swing.JTextField();
         btnEnviarAluguel = new javax.swing.JButton();
+        jComboBoxLivro = new javax.swing.JComboBox<>();
+        lblLivroAluguel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -76,6 +85,10 @@ public class Aluguel extends javax.swing.JFrame {
             }
         });
 
+        jComboBoxLivro.setModel(model2);
+
+        lblLivroAluguel.setText("Livro:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -89,32 +102,38 @@ public class Aluguel extends javax.swing.JFrame {
                         .addGap(16, 16, 16)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(lblDevolucao)
-                            .addComponent(lblLeitor))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(lblLeitor)
+                            .addComponent(lblLivroAluguel))
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jComboBoxLeitor, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtfDevolucao, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtfDevolucao, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jComboBoxLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(160, 160, 160)
+                        .addGap(161, 161, 161)
                         .addComponent(btnEnviarAluguel)))
-                .addContainerGap(105, Short.MAX_VALUE))
+                .addContainerGap(71, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(btnVoltarAluguel)
-                .addGap(31, 31, 31)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(41, 41, 41)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jComboBoxLivro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblLivroAluguel, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblDevolucao)
                     .addComponent(txtfDevolucao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblLeitor)
-                    .addComponent(jComboBoxLeitor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBoxLeitor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblLeitor))
                 .addGap(18, 18, 18)
                 .addComponent(btnEnviarAluguel)
-                .addContainerGap(139, Short.MAX_VALUE))
+                .addContainerGap(75, Short.MAX_VALUE))
         );
 
         pack();
@@ -136,7 +155,15 @@ public class Aluguel extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBoxLeitorActionPerformed
 
     private void btnEnviarAluguelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarAluguelActionPerformed
-        
+        String prazoDevolucao = txtfDevolucao.getText();
+        String leitor = jComboBoxLeitor.getSelectedItem().toString();
+        int numeroLivro = jComboBoxLivro.getSelectedIndex();
+        for(int i=0; i<biblioteca.getObras().size(); i++){
+            if(numeroLivro == biblioteca.getObras().get(i).getCodigoObra()){
+                biblioteca.getObras().get(i).alugarObra(leitor, prazoDevolucao);
+            }
+        }
+        this.dispose();
     }//GEN-LAST:event_btnEnviarAluguelActionPerformed
 
     /**
@@ -178,8 +205,10 @@ public class Aluguel extends javax.swing.JFrame {
     private javax.swing.JButton btnEnviarAluguel;
     private javax.swing.JButton btnVoltarAluguel;
     private javax.swing.JComboBox<String> jComboBoxLeitor;
+    private javax.swing.JComboBox<String> jComboBoxLivro;
     private javax.swing.JLabel lblDevolucao;
     private javax.swing.JLabel lblLeitor;
+    private javax.swing.JLabel lblLivroAluguel;
     private javax.swing.JTextField txtfDevolucao;
     // End of variables declaration//GEN-END:variables
 }

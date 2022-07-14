@@ -4,6 +4,7 @@ public class Leitor {
 	private String nome;
 	private boolean alugando=false;
 	private Copia copiaAlugada;
+        
 	
 	
 	public Leitor(String nome) {
@@ -31,6 +32,11 @@ public class Leitor {
 	
 	public Copia getCopiaAlugada() {
 		return copiaAlugada;
+	}
+        
+        public String toString() {
+		return nome;
+		
 	}
 	
 	

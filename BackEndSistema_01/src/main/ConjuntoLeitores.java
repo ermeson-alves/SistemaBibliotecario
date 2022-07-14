@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * @author Guilherme
  */
 public class ConjuntoLeitores {
-    private ArrayList<Leitor> leitores;
+    private static ArrayList<Leitor> leitores;
   private static ConjuntoLeitores uniqueInstance;
 
   private ConjuntoLeitores() {
@@ -25,9 +25,9 @@ public class ConjuntoLeitores {
 		leitores.add(leitor);
 	}
 
-  public void retirarLeitor (Leitor leitor) {
+  public void retirarLeitor (String nome) {
     for(int i = 0; i < leitores.size(); i ++){
-	            if(leitores.get(i) == leitor){
+	            if(leitores.get(i).getNome() == nome){
 	                leitores.remove(i);}}
   }
 

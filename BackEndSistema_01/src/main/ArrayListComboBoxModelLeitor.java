@@ -15,15 +15,15 @@ import java.util.Collection;
  *
  * @author Guilherme
  */
-public class ArrayListComboBoxModel extends AbstractListModel implements ComboBoxModel{
+public class ArrayListComboBoxModelLeitor extends AbstractListModel implements ComboBoxModel{
   private Object selectedItem;
 
   private ArrayList anArrayList;
   
-  Biblioteca biblioteca = Biblioteca.getInstance();
+  ConjuntoLeitores leitores = ConjuntoLeitores.getInstance();
   
-  public ArrayListComboBoxModel(ArrayList arrayList) {
-        this.anArrayList = biblioteca.getObras();
+  public ArrayListComboBoxModelLeitor(ArrayList arrayList) {
+        this.anArrayList = leitores.getLeitores();
   }
 
   public Object getSelectedItem() {

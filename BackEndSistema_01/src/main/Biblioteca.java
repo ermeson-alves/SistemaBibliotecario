@@ -6,6 +6,7 @@ public class Biblioteca {
 	private static ArrayList<Obra> obras;
 	public static int indiceObras=0;
 	private static Biblioteca uniqueInstance;
+        //private ArrayList<Obra> aux=null;
 	
 	private Biblioteca() {
 		this.obras=new ArrayList<Obra>(); // Quando a Classe é criada, deve-se criar o Array de obras
@@ -27,7 +28,7 @@ public class Biblioteca {
 	}
 	
 	
-	public void adicionarObra (String nome, String autor, String editora, int quantidadeCopias) {
+	/*public void adicionarObra (String nome, String autor, String editora, int quantidadeCopias) {
 		boolean achou_obra=false;
 		for(int i = 0; i < this.obras.size(); i ++){// percorrer o arraylist
 	           if(obras.get(i).getNome()==nome){
@@ -44,14 +45,50 @@ public class Biblioteca {
 			 obra.setCodigoObra(indiceObras);
 			 indiceObras+=1;
 		 }
+	}*/
+        public void adicionarObra (String nome, String autor, String editora, int quantidadeCopias) {
+		boolean achou_obra=false;
+		for(int i = 0; i < this.obras.size(); i ++){// percorrer o arraylist
+	           if(obras.get(i).getNome()==nome){
+	               achou_obra=true;
+	               if(quantidadeCopias==0) {obras.get(i).adicionarCopia(1);}
+	               else {obras.get(i).adicionarCopia(quantidadeCopias);}
+	           }
+	    }
+		if(achou_obra) {}
+		else {
+			 Obra obra=new Obra(nome,autor,editora,quantidadeCopias);
+			 obras.add(obra);
+			 obra.setCodigoObra(indiceObras);
+                         indiceObras+=1;
+                         
+		 }
 	}
 	
 	
 	 public void retirarObra(int codigoObra) {// Usar apenas 'obras.remove(codigoObra)' implica descontrole sobre o indice
 		 for(int i = 0; i < obras.size(); i ++){
 	            if(obras.get(i).getCodigoObra()==codigoObra){
-	                obras.remove(i);}}  
+	                obras.remove(i);
+                        for(int j=0; j<obras.size(); j++){
+                            if(obras.get(j).getCodigoObra() > i){
+                                obras.get(j).setCodigoObra(obras.get(j).getCodigoObra() - 1);
+                                indiceObras-=1;
+                            }
+                        }
+                    }
+                 }                
 	}
+         
+         public ArrayList<Obra> getArrayAuxiliar(){
+             ArrayList<Obra> obrasAlugadas = new ArrayList<Obra>();
+             for(int i=0; i<Biblioteca.getInstance().getObras().size(); i++){
+                if(Biblioteca.getInstance().getObras().get(i).getAlugada()==true){
+                    obrasAlugadas.add(Biblioteca.getInstance().getObras().get(i));
+                }
+            }
+            return obrasAlugadas;
+         }
 	
 	public static Biblioteca getInstance(){
 		if (uniqueInstance==null) {
