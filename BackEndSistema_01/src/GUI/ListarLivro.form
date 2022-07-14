@@ -38,10 +38,6 @@
                       <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                       <Component id="jComboBox1" min="-2" pref="403" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="175" max="-2" attributes="0"/>
-                      <Component id="btnSelecionar" min="-2" max="-2" attributes="0"/>
-                  </Group>
               </Group>
               <EmptySpace pref="22" max="32767" attributes="0"/>
           </Group>
@@ -56,9 +52,7 @@
               <Component id="lblNomeLivro" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="jComboBox1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
-              <Component id="btnSelecionar" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="106" max="32767" attributes="0"/>
+              <EmptySpace pref="176" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -92,14 +86,6 @@
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
-    </Component>
-    <Component class="javax.swing.JButton" name="btnSelecionar">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Selecionar"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSelecionarActionPerformed"/>
-      </Events>
     </Component>
   </SubComponents>
 </Form>

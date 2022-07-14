@@ -36,7 +36,6 @@ public class ListarLivro extends javax.swing.JFrame {
         lblNomeLivro = new javax.swing.JLabel();
         btnVoltarLivro = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox<>();
-        btnSelecionar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Pesquisa de Livro");
@@ -58,13 +57,6 @@ public class ListarLivro extends javax.swing.JFrame {
             }
         });
 
-        btnSelecionar.setText("Selecionar");
-        btnSelecionar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSelecionarActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -79,10 +71,7 @@ public class ListarLivro extends javax.swing.JFrame {
                         .addComponent(lblNomeLivro))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(16, 16, 16)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(175, 175, 175)
-                        .addComponent(btnSelecionar)))
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(22, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -94,9 +83,7 @@ public class ListarLivro extends javax.swing.JFrame {
                 .addComponent(lblNomeLivro)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(48, 48, 48)
-                .addComponent(btnSelecionar)
-                .addContainerGap(106, Short.MAX_VALUE))
+                .addContainerGap(176, Short.MAX_VALUE))
         );
 
         pack();
@@ -114,10 +101,6 @@ public class ListarLivro extends javax.swing.JFrame {
         }
         jComboBox1.updateUI();*/
     }//GEN-LAST:event_jComboBox1ActionPerformed
-
-    private void btnSelecionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelecionarActionPerformed
-        
-    }//GEN-LAST:event_btnSelecionarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -156,7 +139,6 @@ public class ListarLivro extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnSelecionar;
     private javax.swing.JButton btnVoltarLivro;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel lblNomeLivro;
